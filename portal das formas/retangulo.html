@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portal das formas</title>
+    <script>
+        function calcularArea() {
+            var comprimento = parseFloat(document.getElementById("comprimento").value);
+            var largura = parseFloat(document.getElementById("largura").value);
+
+            if (!isNaN(comprimento) && !isNaN(largura)) {
+                var area = comprimento * largura;
+                document.getElementById("resultado").innerHTML = "A área do retângulo é: " + area.toFixed(2) + " centímetros.";
+            } else {
+                document.getElementById("resultado").innerHTML = "Insira valores numéricos válidos.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Fórmula do Retângulo</h1>
+    <h2>Comprimento</h2>
+    <div id="flex">
+        <label for="comprimento"></label>
+        <input type="number" id="comprimento" placeholder="Digite o comprimento"><br><br>
+    </div>
+    <h2>Largura</h2>
+    <label for="largura"></label>
+    <input type="number" id="largura" placeholder="Digite a largura"><br><br>
+    
+    <button onclick="calcularArea()">Calcular Área</button>
+    
+    <p id="resultado"></p>
+</body>
+</html>

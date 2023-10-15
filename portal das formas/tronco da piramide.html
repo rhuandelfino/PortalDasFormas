@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.csss">
+    <title>Portal das Formas</title>
+    <script>
+        function calcularArea() {
+            var raioMaior = parseFloat(document.getElementById("raioMaior").value);
+            var raioMenor = parseFloat(document.getElementById("raioMenor").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+
+            if (!isNaN(raioMaior) && !isNaN(raioMenor) && !isNaN(altura)) {
+                var area = Math.PI * (raioMaior + raioMenor) * Math.sqrt(Math.pow(raioMaior - raioMenor, 2) + Math.pow(altura, 2)) + Math.PI * Math.pow(raioMenor, 2);
+                document.getElementById("resultado").innerHTML = "A área do tronco de pirâmide é: " + area.toFixed(2) + " centímetros.";
+            } else {
+                document.getElementById("resultado").innerHTML = "Insira valores numéricos válidos para os raios e a altura.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Área de Tronco de Pirâmide</h1>
+    <h2>Raio Maior</h2>
+    <label for="raioMaior"></label>
+    <input type="number" id="raioMaior" placeholder="Digite o raio maior"><br><br>
+    
+    <h2>Raio Menor</h2>
+    <label for="raioMenor"></label>
+    <input type="number" id="raioMenor" placeholder="Digite o raio menor"><br><br>
+    
+    <h2>Altura</h2>
+    <label for="altura"></label>
+    <input type="number" id="altura" placeholder="Digite a altura"><br><br>
+    
+    <button onclick="calcularArea()">Calcular Área</button>
+    
+    <p id="resultado"></p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portal das Formas</title>
+    <script>
+        function calcularArea() {
+            var baseMaior = parseFloat(document.getElementById("baseMaior").value);
+            var baseMenor = parseFloat(document.getElementById("baseMenor").value);
+            var altura = parseFloat(document.getElementById("altura").value);
+
+            if (!isNaN(baseMaior) && !isNaN(baseMenor) && !isNaN(altura)) {
+                var area = ((baseMaior + baseMenor) * altura) / 2;
+                document.getElementById("resultado").innerHTML = "A área do trapézio irregular é: " + area.toFixed(2) + " centímetros.";
+            } else {
+                document.getElementById("resultado").innerHTML = "Insira valores numéricos válidos para as bases e a altura.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Área de Trapézio Irregular</h1>
+    
+    <h2>Base Maior</h2>
+    <label for="baseMaior"></label>
+    <input type="number" id="baseMaior" placeholder="Digite o comprimento da base maior"><br><br>
+    
+    <h2>Base Menor</h2>
+    <label for="baseMenor"></label>
+    <input type="number" id="baseMenor" placeholder="Digite o comprimento da base menor"><br><br>
+    
+    <h2>Altura</h2>
+    <label for="altura">Altura</label>
+    <input type="number" id="altura" placeholder="Digite a altura"><br><br>
+    
+    <button onclick="calcularArea()">Calcular Área</button>
+    
+    <p id="resultado"></p>
+</body>
+</html>

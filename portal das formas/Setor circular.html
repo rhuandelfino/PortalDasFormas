@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portal das Formas</title>
+    <script>
+        function calcularArea() {
+            var raioMaior = parseFloat(document.getElementById("raioMaior").value);
+            var angulo = parseFloat(document.getElementById("angulo").value);
+
+            if (!isNaN(raioMaior) && !isNaN(angulo) && angulo >= 0 && angulo <= 360) {
+                var areaSetor = (Math.PI * Math.pow(raioMaior, 2) * angulo) / 360;
+                var areaTriangulo = (Math.pow(raioMaior, 2) * Math.sin((angulo * Math.PI) / 180)) / 2;
+                var areaCirculoMaior = Math.PI * Math.pow(raioMaior, 2);
+                var areaTotal = areaSetor - areaTriangulo + areaCirculoMaior;
+                
+                document.getElementById("resultado").innerHTML = "A área do setor circular aninhado é: " + areaTotal.toFixed(2) + " unidades quadradas.";
+            } else {
+                document.getElementById("resultado").innerHTML = "Insira valores numéricos válidos para o raio maior e o ângulo (entre 0 e 360 graus).";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Área de Setor Circular</h1>
+
+    <h2>Raio Maior</h2>
+    <label for="raioMaior"></label>
+    <input type="number" id="raioMaior" placeholder="Digite o raio maior"><br><br>
+    
+    <h2>Ângulo (em graus)</h2>
+    <label for="angulo"></label>
+    <input type="number" id="angulo" placeholder="Digite o ângulo"><br><br>
+    
+    <button onclick="calcularArea()">Calcular Área</button>
+    
+    <p id="resultado"></p>
+</body>
+</html>

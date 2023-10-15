@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portal das Formas</title>
+    <script>
+        function calcularArea() {
+            var raioExterno = parseFloat(document.getElementById("raioExterno").value);
+            var raioInterno = parseFloat(document.getElementById("raioInterno").value);
+
+            if (!isNaN(raioExterno) && !isNaN(raioInterno)) {
+                var area = Math.PI * (Math.pow(raioExterno, 2) - Math.pow(raioInterno, 2));
+                document.getElementById("resultado").innerHTML = "A área da coroa de círculo é: " + area.toFixed(2) + " centímetros";
+            } else {
+                document.getElementById("resultado").innerHTML = "Insira valores numéricos válidos para os raios.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Área de Coroa de Círculo</h1>
+
+    <h2>Raio Externo</h2>
+    <label for="raioExterno"></label>
+    <input type="number" id="raioExterno" placeholder="Digite o raio externo"><br><br>
+    
+    <h2>Raio Inteiro</h2>
+    <label for="raioInterno"></label>
+    <input type="number" id="raioInterno" placeholder="Digite o raio interno"><br><br>
+    
+    <button onclick="calcularArea()">Calcular Área</button>
+    
+    <p id="resultado"></p>
+</body>
+</html>

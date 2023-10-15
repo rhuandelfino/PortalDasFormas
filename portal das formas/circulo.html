@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Portal das Formas</title>
+    <script>
+        function calcularArea() {
+            var raio = parseFloat(document.getElementById("raio").value);
+
+            if (!isNaN(raio)) {
+                var area = Math.PI * Math.pow(raio, 2);
+                document.getElementById("resultado").innerHTML = "A área do círculo é: " + area.toFixed(2) + "centímetros";
+            } else {
+                document.getElementById("resultado").innerHTML = "Insira um valor numérico válido para o raio.";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Calculadora de Área de Círculo</h1>
+
+    <h2>Raio</h2>
+    <label for="raio"></label>
+    <input type="number" id="raio" placeholder="Digite o raio"><br><br>
+    
+    <button onclick="calcularArea()">Calcular Área</button>
+    
+    <p id="resultado"></p>
+</body>
+</html>
